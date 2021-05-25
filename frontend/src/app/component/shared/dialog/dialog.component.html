@@ -1,0 +1,30 @@
+<div *ngIf="this.data.like">
+  <h3>Liked by</h3>
+  <li *ngFor="let like of likes" style="margin-bottom: 2px">
+    <span>{{"@"+like.likeBy}}</span>
+  </li>
+</div>
+<div *ngIf="!this.data.like" class="writetweetcontainer">
+  <h1>Replies :</h1>
+  <div class="repliescontainer" style="height: 250px;overflow-y: scroll;">
+    <div *ngIf="replies.length == 0"> No replies yet!</div>
+    <div class="loopcontainer" *ngFor="let reply of replies">
+      <div class="detailcontainer">
+        <div class="handlecontainer">{{"@"+reply.userID}}</div>
+        <div class="timecontainer">{{reply.timeStamp.$date | dateAgo}}</div>
+      </div>
+      <div class="messageconainer">{{reply.message}}</div>
+    </div>
+  </div>
+  <div class="lineseperater"></div>
+  <div class="inputcontainer">
+    <h3>Replying to {{"@"+this.data.userId}}</h3>
+    <textarea required class="tweetinput"  [(ngModel)]="tweetMessage" name="comment" placeholder="Reply here!"></textarea>
+  </div>
+  <div class="buttoncontainer">
+    <div>
+      <span style="color: red" *ngIf="tweetMessage.length > 144">Please do not exceed 144 characters</span>
+    </div>
+    <button mat-raised-button color="primary" (click)="replyTweet()">Reply Tweet</button>
+  </div>
+</div>

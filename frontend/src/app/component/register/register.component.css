@@ -1,0 +1,65 @@
+.registertile {
+  display: flex;
+  flex-direction: row;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;  margin : 60px auto auto;
+  width: 900px;
+  background-color: white;
+
+}
+.birdimage {
+  display: block;
+  width: 430px;
+  margin: 40px auto auto;
+}
+.regImg {
+  width: 500px;
+  border-right: 1px solid rgba(208, 208, 208, 0.66);
+}
+.form-container {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  margin: auto;
+}
+
+.form-container-1 {
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.2);
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+}
+
+.registerForm {
+  width: 80%;
+}
+
+.submitbuttoncontainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  width: 100% !important;
+}
+
+.submitbutton {
+  width: 100% !important;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.resetbutton {
+  margin-left: 10px;
+}
+
+.error {
+  color: red;
+}
+
+.loginheader {
+  margin-top: 35px;
+  margin-bottom: -10px;
+  text-align: center;
+}

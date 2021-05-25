@@ -1,0 +1,28 @@
+
+<mat-toolbar class="nav-bar-container" color="primary">
+ <div style="max-width: 1360px;display: flex;justify-content: space-between;width: 100%;margin: auto;">
+   <div style="display:flex;">
+     <div style="width: 35px;height: 35px;">
+       <a mat-icon-button routerLink="/dashboard">
+         <img *ngIf="loggedIn" routerLink="/dashboard" style="width: 100%" src="assets/images/bird.png">
+         <span *ngIf="!loggedIn">Tweet</span>
+       </a>
+     </div>
+     <div *ngIf="loggedIn" style="margin-left: 25px;width: fit-content">
+       <a style="width: fit-content" mat-icon-button routerLink="/dashboard">
+         View Tweets
+       </a>
+     </div>
+     <div *ngIf="loggedIn" style="margin-left: 15px;width: fit-content">
+       <a style="width: fit-content" mat-icon-button routerLink="/home">
+         All Users
+       </a>
+     </div>
+   </div>
+   <div>
+     <a class="registerbutton" *ngIf="!loggedIn && registerPage()" mat-icon-button routerLink="/login">Login</a>
+     <a class="registerbutton" *ngIf="!loggedIn && !registerPage()" mat-icon-button routerLink="/register">Register</a>
+     <a class="logoutbutton" *ngIf="loggedIn" mat-icon-button (click)="logoutUser()">Logout</a>
+   </div>
+ </div>
+</mat-toolbar>

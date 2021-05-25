@@ -1,0 +1,48 @@
+<script src="dashboard.component.ts"></script>
+<link rel="stylesheet" href="dashboard.component.css">
+<div class="dashboardcontainer">
+  <div class="leftcontainer">
+    <div class="card">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img [src]="'assets/images/'+loginId+'.jpg'" onerror="this.onerror=null; this.src='assets/images/bird.png'" style="width:100%;border:1px solid;box-sizing:border-box">
+          </div>
+          <div class="flip-card-back">
+            <div>
+              <input type="file" style="margin-top: 150px;margin-left: 105px;" (change)="selectFile($event)">
+            </div>
+            <div>
+              <button mat-raised-button color="primary" style="margin-top: 10px;" [disabled]="!selectedFiles"  (click)="uploadImage()">Upload Images</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cardcontainer">
+        <b>{{userName}}</b>
+        <p>{{'@'+loginId}}</p>
+      </div>
+    </div>
+    <div class="filtercontainer">
+      <div class = "checkboxfilter"><input type="checkbox" id="all" [(ngModel)]="filter.all" (change)="filterChange($event)" /> All Tweets </div>
+     <div class = "checkboxfilter"><input type="checkbox" id="my" [(ngModel)]="filter.my" (change)="filterChange($event)" /> My Tweets </div>
+      <div class = "checkboxfilter"><input type="checkbox" id="others" [(ngModel)]="filter.others" (change)="filterChange($event)" /> Other Tweets </div>
+    </div>
+  </div>
+  <div class="rightcontainer">
+    <div class="writetweetcontainer">
+      <div class="inputcontainer">
+        <textarea class="tweetinput" name="comment" placeholder="Tweet here!" [(ngModel)]="tweetMessage"></textarea>
+      </div>
+      <div class="buttoncontainer">
+        <div>
+          <span style="color: red" *ngIf="tweetMessage.length > 144">Please do not exceed 144 characters</span>
+        </div>
+        <button mat-raised-button color="primary" (click)="postUserTweet()">Post Tweet</button>
+      </div>
+    </div>
+    <div *ngFor="let tweet of filteredTweets">
+      <app-tweettile [sendMessage]="sendMessage" [name]="tweet.userName" [handle]="tweet.handle" [time]="tweet.timestamp" [message]="tweet.message" [likes]="tweet.likes" [replies]="tweet.replies" [tweetId]="tweet.tweetId"></app-tweettile>
+    </div>
+  </div>
+</div>

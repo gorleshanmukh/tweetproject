@@ -1,0 +1,26 @@
+<div class="tweetcontainer">
+  <div class="userimagecontainer">
+    <img src={{imageSrc}} onerror="this.onerror=null; this.src='assets/images/bird.png'" class="userimage">
+  </div>
+  <div class="userdetailscontainer">
+    <div class="userdetailstop">
+      <div class="userdetails">
+        <div class="username">{{name}}</div>
+        <div class="userhandle">{{"@"+handle}}</div>
+      </div>
+      <div class="userdetailstime">
+        {{time | dateAgo}}
+      </div>
+    </div>
+    <div class="userdetailsbottom">
+      {{message}}
+    </div>
+    <div class="useractioncontainer">
+      <img class="replyiconcontainer" src="assets/icons/reply.png" (click)="openDialog($event)">
+      <div style="padding: 4px;color: #828080;" id="reply" (click)="openDialog($event)">{{replies.length}}</div>
+      <img class="likeiconcontainer" *ngIf="!liked" src="assets/icons/like.png" (click)="likeTweet()">
+      <img class="likeiconcontainer" *ngIf="liked" src="assets/icons/liked.png" >
+      <div style="padding: 4px;color: #828080;" id="like" (click)="openDialog($event)">{{likes.length}}</div>
+    </div>
+  </div>
+</div>

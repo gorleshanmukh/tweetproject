@@ -1,0 +1,35 @@
+<div class="registertile">
+  <div class="regImg">
+    <h1 align="center" style="margin-top: 35px">TWEET APP</h1>
+    <img src="assets/images/bird.png" class="birdimage"/>
+  </div>
+  <div class="form-container-1">
+  <h1 class="loginheader">Login</h1>
+  <div class="form-container">
+    <form class="loginform" (ngSubmit)="onSubmit()" action="">
+      <mat-form-field class="full-width">
+        <mat-label>Username</mat-label>
+        <input type="text" required [(ngModel)]="credentials.loginId" name="username" matInput>
+      </mat-form-field><br>
+      <mat-form-field class="full-width">
+        <mat-label *ngIf="!forgotPassFlag">Password</mat-label>
+        <mat-label *ngIf="forgotPassFlag">New Password</mat-label>
+        <input type="password" required [(ngModel)]="credentials.password" name="password" matInput>
+      </mat-form-field>
+      <br>
+      <span *ngIf="responsevalidation.flag" class="error">{{responsevalidation.message}}</span>
+      <div class="submitbuttoncontainer">
+        <button *ngIf="!forgotPassFlag" class="submitbutton" type="submit" mat-raised-button color="primary">Login</button>
+      </div>
+      <div class="buttoncontainer">
+        <a *ngIf="!forgotPassFlag" class="submitbutton" mat-icon-button (click)="onForgotPassword()">Forgot password?</a>
+        <button *ngIf="forgotPassFlag" class="submitbutton"  mat-raised-button color="primary" (click)="onForgotPasswordSubmit()">Reset Password</button>
+      </div>
+      <div class="buttoncontainer">
+        <button *ngIf="forgotPassFlag" class="submitbutton"  mat-raised-button color="primary" (click)="loginAgain()">Login Again?</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+</div>

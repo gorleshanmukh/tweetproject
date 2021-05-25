@@ -1,0 +1,66 @@
+  <div class="registertile">
+    <div class="regImg">
+      <h1 align="center" style="margin-top: 35px">TWEET APP</h1>
+      <img src="assets/images/bird.png" class="birdimage"/>
+    </div>
+    <div class="form-container-1">
+      <h1 class="loginheader">Register</h1>
+      <div class="form-container">
+        <form class="registerForm" (ngSubmit)="onSubmit()" action="">
+          <mat-form-field class="full-width">
+            <mat-label>First Name</mat-label>
+            <input type="text" required [(ngModel)]="userInfo.firstName" name="firstname" matInput>
+          </mat-form-field>
+          <span *ngIf="userInfoValidator.firstName">invalid</span>
+          <br>
+
+          <mat-form-field class="full-width">
+            <mat-label>Last Name</mat-label>
+            <input type="text" required [(ngModel)]="userInfo.lastName" name="lastname" matInput>
+          </mat-form-field>
+          <span *ngIf="userInfoValidator.lastName">invalid</span>
+          <br>
+
+          <mat-form-field class="full-width">
+            <mat-label>Login ID</mat-label>
+            <input type="text" required [(ngModel)]="userInfo.loginId" name="loginId" matInput>
+          </mat-form-field>
+          <span *ngIf="userInfoValidator.loginId">invalid</span>
+          <br>
+
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input type="text" required [(ngModel)]="userInfo.emailId" name="emailId" matInput>
+          </mat-form-field>
+          <span *ngIf="userInfoValidator.emailId">invalid</span>
+          <br>
+
+          <mat-form-field class="full-width">
+            <mat-label>Contact Number</mat-label>
+            <input type="text" required [(ngModel)]="userInfo.contactNumber" name="contactNumber" matInput>
+          </mat-form-field>
+          <span *ngIf="userInfoValidator.contactNumber">invalid</span>
+          <br>
+
+          <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input type="text" required [(ngModel)]="userInfo.password" name="password" matInput>
+          </mat-form-field>
+          <span *ngIf="userInfoValidator.password">invalid</span>
+          <br>
+
+          <mat-form-field class="full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input type="text" required [(ngModel)]="confirmPassword" name="confirmPassword" matInput>
+          </mat-form-field><br>
+
+          <span *ngIf="userInfoValidator.confirmPassword" class="error">Passwords do not match</span>
+          <span *ngIf="errorResponse.flag" class="error">{{errorResponse.errorMessage}}</span>
+          <div class="submitbuttoncontainer">
+            <button class="submitbutton" type="submit" mat-raised-button color="primary">Register</button>
+            <!--        <button class="resetbutton" type="submit" mat-raised-button color="primary" (click)="reset()">Reset</button>-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
